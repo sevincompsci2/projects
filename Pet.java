@@ -1,43 +1,83 @@
 public class Pet
 {
-    // Private data
     private String name;
+    private String type;
+    private int age;
 
     // Default constructor
     public Pet()
     {
         setName("Pet Name");
+        setType("Animal");
+        setAge(1);
     }
 
-    // Set method
-    public void setName(String petName)
+    // Custom constructor
+    public Pet(String type, String name, int age)
     {
-        name = petName;
+        setType(type);
+        setName(name);
+        setAge(age);
     }
 
-    // Get method
+    // Set methods
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public void setType(String type)
+    {
+        this.type = type;
+    }
+
+    public void setAge(int age)
+    {
+        this.age = age;
+    }
+
+    // Get methods
     public String getName()
     {
         return name;
     }
 
-    // Returns the Pet information
-    public String toString()
+    public String getType()
     {
-        return "Pet information:\nName: " + name;
+        return type;
     }
 
-    public static void main(String[] args)
+    public int getAge()
     {
-        // First Pet object
-        Pet pet1 = new Pet();
-        System.out.println(pet1.toString());
+        return age;
+    }
 
-        System.out.println();
+    // Speak method
+    public String speak()
+    {
+        if (type.equalsIgnoreCase("dog"))
+        {
+            return "Woof";
+        }
+        else if (type.equalsIgnoreCase("cat"))
+        {
+            return "Meow";
+        }
+        else
+        {
+            return "Yowl";
+        }
+    }
 
-        // Second Pet object
-        Pet pet2 = new Pet();
-        pet2.setName("Eight");
-        System.out.println(pet2.toString());
+    // Pet information
+    public String toString()
+    {
+        String output = "Pet information:\n";
+        output += "Type: " + type + "\n";
+        output += "Name: " + name + "\n";
+        output += "Sound: " + speak() + "\n";
+        output += "Age: " + age;
+
+        return output;
     }
 }

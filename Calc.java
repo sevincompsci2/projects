@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Calc
 {
     private double num1;
@@ -54,6 +56,20 @@ public class Calc
     public double divide()
     {
         return num1 / num2;
+    }
+
+    // Makes sure the user enters a number
+    public double getValidNumber(Scanner scan, String message)
+    {
+        System.out.println(message);
+
+        while (!scan.hasNextDouble())
+        {
+            System.out.println("Invalid input. Please enter a number:");
+            scan.next();
+        }
+
+        return scan.nextDouble();
     }
 
     // Display private data fields
